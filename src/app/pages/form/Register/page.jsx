@@ -1,6 +1,5 @@
 "use client";
 import Loader from '@/app/Components/Loader';
-import Loading from '@/app/loading';
 import axios from 'axios';
 import Link from 'next/link'
 import React, { useState } from 'react'
