@@ -7,8 +7,8 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: CLIENT_ID,
+      clientSecret: CLIENT_SECRET,
     }),
   ],
   callbacks: {

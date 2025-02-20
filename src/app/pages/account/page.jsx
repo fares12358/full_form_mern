@@ -205,13 +205,13 @@ const Page = () => {
       :
       isLoged ?
         <div className='w-full h-full bg-white flex items-center justify-center '>
-          <div className="bg-white max-w-full w-[600px] h-fit max-h-[80%] flex flex-col p-5 rounded-xl overflow-auto shadow-2xl">
+          <div className="bg-white max-w-[80%] w-[600px] h-fit max-h-[80%] flex flex-col p-5 rounded-xl overflow-auto shadow-2xl">
             <img src="/svg/refresh-com.svg" alt="refresh" className='w-[25px] self-center cursor-pointer' onClick={refresh} />
             <div className="flex items-center gap-2 p-2 md:px-10">
               <img className='sm:w-[60px] w-[40px] sm:h-[60px] h-[40px] rounded-full border' src={user?.image || "/svg/unknown-com.svg"} alt="img" />
               <div>
                 <p className='sm:text-xl font-medium text-md'>{user?.name || 'Name'}</p>
-                <p className='text-[#6b7380] font-normal sm:text-md'>{user?.email || 'example@gmail.com'}</p>
+                <p className='text-[#6b7380] font-normal sm:text-md flex-wrap'>{user?.email || 'example@gmail.com'}</p>
               </div>
             </div>
             <div className="flex flex-col p-2 justify-start items-start gap-2 md:px-10">

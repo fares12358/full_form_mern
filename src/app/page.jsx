@@ -42,7 +42,7 @@ export default function Home() {
   const logoutHandel = () => {
     signOut();
     setUser(null)
-    setisLoged(false32)
+    setisLoged(false)
   }
 
 
@@ -59,21 +59,7 @@ export default function Home() {
           <Link href={"/pages/account"} className="bg-fuchsia-600 py-2 px-5 text-white font-bold rounded-md">Account</Link>
           <div className="bg-red-600 py-2 px-5 text-white font-bold rounded-md cursor-pointer"
             onClick={() => console.log(user)}>show user</div>
-          {user && typeof user === "object" && !Array.isArray(user) ? (
-            <div>
-              <div className="text-green-600 uppercase ">user data</div>
-              <div>{user._id}</div>
-              <div>{user.name}</div>
-              <div>{user.email}</div>
-              <div>{user.username}</div>
-              <div>{user.password}</div>
-              <div>{user.verification}</div>
-              <div>{user.image}</div>
-            </div>
-          ) : (
-            <div>user is empty</div>
-          )}
-
+        
         </div>
 
       ) : (
