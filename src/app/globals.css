@@ -6,7 +6,7 @@
 .three-body {
   --uib-size: 35px;
   --uib-speed: 0.8s;
-  --uib-color: #000000;
+  --uib-color: #1500ff;
   position: relative;
   display: inline-block;
   height: var(--uib-size);

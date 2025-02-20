@@ -110,18 +110,14 @@ const page = () => {
     }
     const register = (e) => {
         e.preventDefault();
-
         // Call validation functions with proper event objects
         const nameValid = nameValidation({ target: { value: formData.name } });
         const usernameValid = usernameValidation({ target: { value: formData.username } });
         const passwordValid = passwordValidation({ target: { value: formData.password } });
         const confirmValid = confirmPasswordValidation({ target: { value: formData.confirm } });
         const emailValid = emailValidation({ target: { value: formData.email } });
-
-
         if (nameValid && usernameValid && passwordValid && confirmValid && emailValid) {
             registerBackend();
-
         }
 
     };

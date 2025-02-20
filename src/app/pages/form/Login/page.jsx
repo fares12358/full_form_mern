@@ -14,7 +14,7 @@ const page = () => {
     const [loader, setloader] = useState(false)
     const [passType, setpassType] = useState('password');
     const { data: session } = useSession();
-    const { setUser } = useAppContext();
+    const { setUser,setisLoged } = useAppContext();
     const router = useRouter();
 
     const usernameValidation = (e) => {
@@ -70,8 +70,8 @@ const page = () => {
             if (res.status === 200 && res.data.login) {
                 console.log('Account created successfully:', res.data.user);
                 setUser(res.data.user);
+                setisLoged(true);
                 router.push("/");
-
                 setformData({ username: '', password: '' });
                 setTimeout(() => {
                     setErrors({ username: '', password: '', login: '' });

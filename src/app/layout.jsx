@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import AuthProvider from "./AuthProvider";
+import AuthProvider from "./AuthProvider.js";
 
 import { AppProvider } from "./Context.js";
 
