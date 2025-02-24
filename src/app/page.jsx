@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const token = 'f9b8c1d45e3a4f6789b12c34d5e67f890a1b23c45d6e78f90b12c34d5e67f890'
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -19,7 +20,12 @@ export default function Home() {
 
       const response = await axios.post(`${API_URL}/getUserData`, {
         identifier: session.user.email,
-      });
+      },
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        });
 
       if (response.status !== 200) {
         console.error("Failed to save user data to backend:", response.data);
@@ -59,7 +65,7 @@ export default function Home() {
           <Link href={"/pages/account"} className="bg-fuchsia-600 py-2 px-5 text-white font-bold rounded-md">Account</Link>
           <div className="bg-red-600 py-2 px-5 text-white font-bold rounded-md cursor-pointer"
             onClick={() => console.log(user)}>show user</div>
-        
+
         </div>
 
       ) : (

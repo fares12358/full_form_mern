@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
+const token = 'f9b8c1d45e3a4f6789b12c34d5e67f890a1b23c45d6e78f90b12c34d5e67f890'
 
 export const authOptions = {
   providers: [
@@ -11,15 +12,20 @@ export const authOptions = {
       clientSecret: process.env.CLIENT_SECRET,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user }) {
       try {
-        console.log("User Data:", user); // Debugging log
         const response = await axios.post(`${API_URL}/google-login`, {
           name: user.name,
           email: user.email,
           image: user.image,
-        });
+        },
+          {
+            headers: {
+              authorization: `Bearer ${token}`
+            }
+          });
         if (response.status !== 200) {
           console.error("Failed to save user data to backend:", response.data);
           return false; // Block login if backend fails
