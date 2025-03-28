@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 
 const Page = () => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const token = 'f9b8c1d45e3a4f6789b12c34d5e67f890a1b23c45d6e78f90b12c34d5e67f890'
+
   const [editMode, setEditMode] = useState(false);
   const { user, setUser, isLoged } = useAppContext();
   const [formData, setformData] = useState({ username: '', password: '', name: '', confirm: '', email: '' })
@@ -17,19 +19,37 @@ const Page = () => {
     e.preventDefault();
     setEditMode(false);
     setformData({ name: '', username: '', password: '', confirm: '', email: '' });
-    setErrors({ name: '', username: '', password: '', confirm: '', email: '', update: '' });
+    setErrors({ name: '', username: '', password: '', confirm: '', email: '', update: '', verify: '' });
   }
 
   const handelVerify = async (e) => {
     e.preventDefault();
-
     try {
       setloader(true)
+      const response = await axios.post(`${API_URL}/verifyEmail`, {
+        email: user.email,
+      },
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        });
 
+      if (response.status !== 200) {
+        console.error("Failed to save user data to backend:", response.data);
+      }
+      if (response.status === 200) {
+        setErrors((prev) => ({ ...prev, verify: response.data.message }));
+
+      }
+      refresh();
     } catch (error) {
-
+      console.log("Error storing user:", error.response?.data || error.message);
     } finally {
       setloader(false)
+      setTimeout(() => {
+        setErrors({ verify: '' });
+      }, 3000);
     }
   }
 
@@ -38,7 +58,12 @@ const Page = () => {
       setloader(true)
       const response = await axios.post(`${API_URL}/getUserData`, {
         identifier: user._id,
-      });
+      },
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        });
 
       if (response.status !== 200) {
         console.error("Failed to save user data to backend:", response.data);
@@ -158,7 +183,12 @@ const Page = () => {
       if (formData.email) requestBody.email = formData.email;
       if (user._id) requestBody.id = user._id;
 
-      const res = await axios.post(`${API_URL}/updateUser`, requestBody);
+      const res = await axios.post(`${API_URL}/updateUser`, requestBody,
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        });
 
       if (res.status === 200) {
         console.log('Account created successfully:', res.data);
@@ -204,8 +234,8 @@ const Page = () => {
       <Loader />
       :
       isLoged ?
-        <div className='w-full h-full bg-white flex items-center justify-center '>
-          <div className="bg-white max-w-[80%] w-[600px] h-fit max-h-[80%] flex flex-col p-5 rounded-xl overflow-auto shadow-2xl">
+        <div className='w-full h-full bg-white flex items-center justify-center'>
+          <div className="bg-white max-w-[80%] w-fit h-fit max-h-[80%] flex flex-col p-5 rounded-xl overflow-auto shadow-2xl">
             <img src="/svg/refresh-com.svg" alt="refresh" className='w-[25px] self-center cursor-pointer' onClick={refresh} />
             <div className="flex items-center gap-2 p-2 md:px-10">
               <img className='sm:w-[60px] w-[40px] sm:h-[60px] h-[40px] rounded-full border' src={user?.image || "/svg/unknown-com.svg"} alt="img" />
@@ -233,17 +263,23 @@ const Page = () => {
                   ''
               }
               <input type="text" value={formData.email} onChange={(e) => { setformData((prevData) => ({ ...prevData, email: e.target.value })) }} placeholder={user?.email || ''} readOnly={!editMode} className='border border-neutral-400 text-neutral-500 max-w-full w-[250px] sm:h-[30px] p-1 px-2 text-sm outline-none focus:outline-none rounded-md' />
+              {
+                errors.verify !== '' ?
+                  <p className='text-sm font-normal text-green-600 flex-wrap'>{errors.verify}</p>
+                  :
+                  ""
+              }
               <div className="flex items-center gap-2">
                 {user?.verification ? (
                   <>
-                    <img src="/svg/correct-com.svg" alt="verified" className='w-[20px]' />
-                    <p className='text-green-600 font-bold'>Verified</p>
+                    <img src="/svg/correct-com.svg" alt="verified" className='md:w-[20px] w-[15px]' />
+                    <p className='text-green-600 font-bold text-xs'>Verified</p>
                   </>
                 ) : (
                   <>
-                    <img src="/svg/cancel-com.svg" alt="not verified" className='w-[20px]' />
-                    <p className='text-red-600 font-bold'>Not verified</p>
-                    <button className='text-blue-500 text-sm font-bold px-3 py-1 rounded-md underline' onClick={handelVerify}>Verify now</button>
+                    <img src="/svg/cancel-com.svg" alt="not verified" className='md:w-[20px] w-[15px]' />
+                    <p className='text-red-600 font-bold text-xs'>Not verified</p>
+                    <button className='text-blue-500 text-xs font-bold px-3 py-1 rounded-md underline' onClick={handelVerify}>Verify now</button>
                   </>
                 )}
               </div>

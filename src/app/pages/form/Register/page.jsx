@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 
 const page = () => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+    const token='f9b8c1d45e3a4f6789b12c34d5e67f890a1b23c45d6e78f90b12c34d5e67f890'
 
     const [passType, setpassType] = useState('password')
     const [formData, setformData] = useState({ username: '', password: '', name: '', confirm: '', email: '' })
@@ -130,6 +131,11 @@ const page = () => {
                 username: formData.username,
                 password: formData.password,
                 email: formData.email,
+            },
+            {
+              headers: {
+                authorization: `Bearer ${token}`
+              }
             });
 
             if (res.status === 201) {

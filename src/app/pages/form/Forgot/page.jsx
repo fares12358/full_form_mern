@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 
 const page = () => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const token='f9b8c1d45e3a4f6789b12c34d5e67f890a1b23c45d6e78f90b12c34d5e67f890'
 
   const [formData, setformData] = useState({ username: ''})
   const [errors, setErrors] = useState({ username: '', forgot: '' });
@@ -38,6 +39,11 @@ const page = () => {
       setloader(true);
       const res = await axios.post(`${API_URL}/forgot-password`, {
         identifier: formData.username,
+      },
+      {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
       });
 
       if (res.status === 200 ) {
