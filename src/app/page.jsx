@@ -27,6 +27,10 @@ export default function Home() {
             authorization: `Bearer ${token}`
           }
         });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 75a44478f9bb18d179930d8d031cbb51a63c9256
       if (response.status !== 200) {
         console.error("Failed to save user data to backend:", response.data);
         return false; // Block login if backend fails
@@ -46,9 +50,25 @@ export default function Home() {
   // session && session.user || user && isLoged ?
   if (status === "loading") return <Loader />;
   return (
+<<<<<<< HEAD
     <div className="flex flex-col w-full h-full">
       <Nav />
       <div className="flex flex-col items-center justify-center gap-2  p-10 h-full overflow-y-auto">
+=======
+    <div className="flex items-center justify-center w-full h-full">
+      {session && session.user || user && isLoged ? (
+        <div className="flex flex-col items-center justify-center gap-2  p-10 border">
+          <h2>Welcome, {session?.user?.name || user?.name} </h2>
+          <p>Email: {session?.user?.email || user?.email || "none"}</p>
+          <img src={session?.user?.image || user?.image || 'none'} alt="User Image" width={100} height={100} />
+          <button className="bg-blue-600 py-2 px-5 text-white font-bold rounded-md" onClick={logoutHandel}>Sign Out</button>
+          <Link href={"/pages/dashboard"} className="bg-green-600 py-2 px-5 text-white font-bold rounded-md">Dashboard</Link>
+          <Link href={"/pages/account"} className="bg-fuchsia-600 py-2 px-5 text-white font-bold rounded-md">Account</Link>
+          <div className="bg-red-600 py-2 px-5 text-white font-bold rounded-md cursor-pointer"
+            onClick={() => console.log(user)}>show user</div>
+
+        </div>
+>>>>>>> 75a44478f9bb18d179930d8d031cbb51a63c9256
 
       </div>
     </div>

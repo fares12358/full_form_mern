@@ -16,7 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
+<<<<<<< HEAD
         className={`${yujiMai.className} antialiased w-screen overflow-hidden`}
+=======
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full overflow-hidden`}
+>>>>>>> 75a44478f9bb18d179930d8d031cbb51a63c9256
       >
         <AuthProvider>
           <AppProvider>

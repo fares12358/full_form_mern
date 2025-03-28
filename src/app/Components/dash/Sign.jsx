@@ -7,7 +7,11 @@ const Sign = () => {
   const { user, isLoged, isLogedDash, setisLogedDash } = useAppContext();
   const [loader, setloader] = useState(false);
   const [passType, setpassType] = useState('password');
+<<<<<<< HEAD
   const [formData, setFormData] = useState({ username: 'fares', password: '5uoru2cm' });
+=======
+  const [formData, setFormData] = useState({ username: 'fares', password: 'jpqmvfq4' });
+>>>>>>> 75a44478f9bb18d179930d8d031cbb51a63c9256
   const [errors, setErrors] = useState({ username: '', password: '', login: '', getpass: '' });
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
