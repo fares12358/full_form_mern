@@ -17,7 +17,7 @@ const Page = () => {
   }
   return (
     isLogedDash ?
-      <div className="w-full h-full bg-dark1 flex gap-1 p-2 relative">
+      <div className="w-full h-[calc(100%-104px)] lg:h-[calc(100%-80px)] bg-dark1 flex gap-1 p-2 relative">
 
         {/* Sidebar */}
         <div className={`w-[250px] bg-dark1 border border-neutral-800 rounded-xl flex flex-col px-5 
