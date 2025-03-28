@@ -4,6 +4,7 @@ import "./globals.css";
 import AuthProvider from "./AuthProvider.js";
 
 import { AppProvider } from "./Context.js";
+import Nav from "./Components/Nav";
 
 const yujiMai = Yuji_Mai({ subsets: ['latin'], weight: ['400'] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       >
         <AuthProvider>
           <AppProvider>
+            <Nav />
             {children}
           </AppProvider>
         </AuthProvider>

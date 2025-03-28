@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
   const [isLogedDash, setisLogedDash] = useState(false);
   const [menuAccView, setMenuAccView] = useState(false);
   return (
-    <AppContext.Provider value={{ user, setUser,isLoged, setisLoged,isLogedDash, setisLogedDash}}>
+    <AppContext.Provider value={{ user, setUser,isLoged, setisLoged,isLogedDash, setisLogedDash,menuAccView, setMenuAccView}}>
       {children}
     </AppContext.Provider>
   );

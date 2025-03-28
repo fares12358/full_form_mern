@@ -47,7 +47,6 @@ export default function Home() {
   if (status === "loading") return <Loader />;
   return (
     <div className="flex flex-col w-full h-full">
-      <Nav />
       <div className="flex flex-col items-center justify-center gap-2  p-10 h-full overflow-y-auto">
 
       </div>

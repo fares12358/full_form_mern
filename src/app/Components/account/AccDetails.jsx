@@ -235,11 +235,10 @@ const AccDetails = () => {
 
     }
 
-
     return (
         <div className='w-full h-full flex items-center justify-center'>
             <div className=" w-full h-full flex flex-col  overflow-auto">
-                <div className="flex items-center gap-2 p-2 md:px-10">
+                <div className="flex items-center gap-2 p-2 ">
                     <img className='sm:w-[70px] w-[40px] sm:h-[70px] h-[40px] rounded-full border' src={user?.image || "/svg/unknown-com.svg"} alt="img" />
                     <div>
                         <p className='sm:text-xl font-medium text-md'>{user?.name || 'Name'}</p>
