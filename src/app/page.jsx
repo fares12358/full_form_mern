@@ -46,7 +46,7 @@ export default function Home() {
   // session && session.user || user && isLoged ?
   if (status === "loading") return <Loader />;
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-[calc(100%-104px)] lg:h-[calc(100%-80px)] ">
       <div className="flex flex-col items-center justify-center gap-2  p-10 h-full overflow-y-auto">
 
       </div>

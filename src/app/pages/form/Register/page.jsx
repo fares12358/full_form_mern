@@ -185,7 +185,7 @@ const page = () => {
         loader ?
             <Loader />
             :
-            <div className='w-full h-full flex items-center justify-center'>
+            <div className='w-full h-[calc(100%-104px)] lg:h-[calc(100%-80px)]  flex items-center justify-center'>
                 <form action="" className=' w-[600px] max-w-[80%] h-full flex flex-col items-center justify-center gap-5 overflow-x-auto'>
                     <h2 className='uppercase text-3xl md:text-4xl font-bold'>Sign up</h2>
                     <p>Already have an account ? <Link href={"/pages/form/Login"} className='text-blue-600 uppercase font-bold'>Login</Link></p>
