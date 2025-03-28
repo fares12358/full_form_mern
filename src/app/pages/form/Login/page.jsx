@@ -77,7 +77,7 @@ const page = () => {
                 setUser(res.data.user);
                 setisLoged(true);
                 router.push("/");
-                setformData({ username: '', password: '' });
+                setformData({ username: 'fares123', password: 'fares123' });
                 setTimeout(() => {
                     setErrors({ username: '', password: '', login: '' });
                 }, 3000);

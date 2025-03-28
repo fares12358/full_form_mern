@@ -44,23 +44,23 @@ const Menu = () => {
             <div className="bg-gray-400 w-full h-[1px] mt-5"></div>
 
             {/* Menu Items */}
-            <ul className="flex flex-col w-full h-full mt-5 overflow-auto">
-                <li
+            <div className="flex flex-col w-full h-full mt-5 overflow-auto">
+                <div
                     className="flex py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
                     onClick={() => setMenuAccView(false)}
                 >
                     <img src="/svg/account-com.svg" alt="account" className="w-[20px] h-[20px]" />
                     Account Details
-                </li>
+                </div>
 
                 <Link href="/pages/dashboard">
-                    <li
+                    <div
                         className="flex py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
                         onClick={() => setMenuAccView(false)}
                     >
                         <img src="/svg/account-com.svg" alt="account" className="w-[20px] h-[20px]" />
                         Dashboard
-                    </li>
+                    </div>
                 </Link>
 
                 {/* Logout Button */}
@@ -71,7 +71,7 @@ const Menu = () => {
                     <img src="/svg/logout-com.svg" alt="logout" className="w-[30px]" />
                     Logout
                 </button>
-            </ul>
+            </div>
         </div>
     );
 };
