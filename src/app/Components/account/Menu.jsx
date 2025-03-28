@@ -18,8 +18,8 @@ const Menu = () => {
 
     return (
         <div
-            className={`w-[300px] h-[calc(100%-104px)] flex flex-col items-center justify-start rounded-2xl p-5 shadow-xl bg-white 
-            transform transition-transform duration-300 z-40
+            className={`w-[300px] h-full flex flex-col items-center justify-start rounded-2xl p-5 shadow-xl bg-white 
+            transform transition-transform duration-300 z-40 
             ${menuAccView ? "translate-x-0" : "-translate-x-[150%]"} lg:translate-x-0`}
         >
             {/* Close button (only visible on mobile) */}
