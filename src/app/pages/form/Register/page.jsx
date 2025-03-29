@@ -186,9 +186,9 @@ const page = () => {
             <Loader />
             :
             <div className='w-full h-[calc(100%-104px)] lg:h-[calc(100%-80px)]  flex items-center justify-center'>
-                <form action="" className=' w-[600px] max-w-[80%] h-full flex flex-col items-center justify-start gap-5 overflow-x-auto py-5 md:py-0'>
+                <form action="" className=' w-[600px] max-w-[80%] h-full flex flex-col items-center justify-start md:justify-center gap-5 overflow-x-auto py-5 md:py-0'>
                     <h2 className='uppercase text-3xl md:text-4xl font-bold'>Sign up</h2>
-                    <p>Already have an account ? <Link href={"/pages/form/Login"} className='text-blue-600 uppercase font-bold'>Login</Link></p>
+                    <p>Already have an account ? <Link href={"/pages/form/Login"} className='text-[#B6349A] uppercase font-bold'>Login</Link></p>
                     {
                         errors.register === 'Username already exists' || errors.register === 'Email already exists' ?
                             <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.register}</p>
@@ -202,7 +202,7 @@ const page = () => {
                             :
                             <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.name}</p>
                     }
-                    <input type="text" value={formData.name} onChange={(e) => nameValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Name' />
+                    <input type="text" value={formData.name} onChange={(e) => nameValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Name' />
 
                     {
                         errors.email === "" ?
@@ -211,14 +211,14 @@ const page = () => {
                             <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.email}</p>
                     }
 
-                    <input type="email" value={formData.email} onChange={(e) => emailValidation(e)} placeholder='Email' className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' />
+                    <input type="email" value={formData.email} onChange={(e) => emailValidation(e)} placeholder='Email' className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' />
                     {
                         errors.username === "" ?
                             ''
                             :
                             <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.username}</p>
                     }
-                    <input type="text" value={formData.username} onChange={(e) => usernameValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Username' />
+                    <input type="text" value={formData.username} onChange={(e) => usernameValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Username' />
                     {
                         errors.password === "" ?
                             ''
@@ -227,7 +227,7 @@ const page = () => {
                     }
                     <div className="max-w-full w-[400px] relative">
 
-                        <input type={passType} value={formData.password} onChange={(e) => passwordValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Password' />
+                        <input type={passType} value={formData.password} onChange={(e) => passwordValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Password' />
 
                         {
                             passType == 'password' ?
@@ -243,9 +243,9 @@ const page = () => {
                             <p className='text-red-600 font-medium text-start w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.confirm}</p>
                     }
 
-                    <input type={passType} value={formData.confirm} onChange={(e) => confirmPasswordValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Password' />
+                    <input type={passType} value={formData.confirm} onChange={(e) => confirmPasswordValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Password' />
 
-                    <button className='bg-blue-600 text-white p-5 py-3 rounded-sm w-[400px] max-w-full uppercase font-bold' onClick={register}>sign up</button>
+                    <button className='bg-[#B6349A] text-white p-5 py-3 rounded-sm w-[400px] max-w-full uppercase font-bold' onClick={register}>sign up</button>
                 </form>
 
             </div>

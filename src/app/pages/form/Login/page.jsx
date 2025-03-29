@@ -119,7 +119,7 @@ const page = () => {
             <div className='w-full h-[calc(100%-104px)] lg:h-[calc(100%-80px)] flex items-center justify-center'>
                 <form action="" className=' w-[600px] max-w-[80%] h-full flex flex-col items-center justify-center gap-5'>
                     <h2 className='uppercase text-3xl md:text-4xl font-bold'>login</h2>
-                    <p>Don't have an account ? <Link href={"/pages/form/Register"} className='text-blue-600 uppercase font-bold'>sign up</Link></p>
+                    <p>Don't have an account ? <Link href={"/pages/form/Register"} className='text-[#B6349A] uppercase font-bold'>sign up</Link></p>
                     {
                         errors.login === "" ?
                             ''
@@ -132,7 +132,7 @@ const page = () => {
                             :
                             <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.username}</p>
                     }
-                    <input type="text" value={formData.username} onChange={(e) => usernameValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Username' />
+                    <input type="text" value={formData.username} onChange={(e) => usernameValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Username' />
                     {
                         errors.password === "" ?
                             ''
@@ -140,7 +140,7 @@ const page = () => {
                             <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.password}</p>
                     }
                     <div className="max-w-full w-[400px] relative">
-                        <input type={passType} value={formData.password} onChange={(e) => passwordValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Password' />
+                        <input type={passType} value={formData.password} onChange={(e) => passwordValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-3 px-4 text-md' placeholder='Password' />
 
                         {
                             passType == 'password' ?
@@ -150,10 +150,10 @@ const page = () => {
                         }
                     </div>
 
-                    <Link href={"/pages/form/Forgot"} className='text-blue-600 font-bold'>Forgot password?</Link>
-                    <button className='bg-blue-600 text-white p-5 py-3 rounded-sm w-[400px] max-w-full uppercase font-bold' onClick={Login}>login</button>
+                    <Link href={"/pages/form/Forgot"} className='text-[#B6349A] font-bold'>Forgot password?</Link>
+                    <button className='bg-[#B6349A] text-white p-5 py-3 rounded-sm w-[400px] max-w-full uppercase font-bold' onClick={Login}>login</button>
 
-                    <button className='border border-neutral-400 flex items-center justify-center px-5 py-3 rounded-sm gap-1 w-[400px] max-w-full'
+                    <button className='border border-[#B6349A] flex items-center justify-center px-5 py-3 rounded-sm gap-1 w-[400px] max-w-full'
                         onClick={(e) => { e.preventDefault(); signIn("google", { callbackUrl: "/" }) }}>
                         <img src="/svg/google.svg" alt="google" className='w-[25px] h-[25px]' />
                         Login with google

@@ -237,12 +237,12 @@ const AccDetails = () => {
 
     return (
         <div className='w-full h-full flex items-center justify-center'>
-            <div className=" w-full h-full flex flex-col  overflow-auto">
+            <div className=" w-full h-full  flex flex-col justify-start overflow-auto">
                 <div className="flex items-center gap-2 p-2 ">
                     <img className='sm:w-[70px] w-[40px] sm:h-[70px] h-[40px] rounded-full border' src={user?.image || "/svg/unknown-com.svg"} alt="img" />
                     <div>
                         <p className='sm:text-xl font-medium text-md text-[#B6349A]'>{user?.name || 'Name'}</p>
-                        <p className='text-[#6b7380] font-normal sm:text-md flex-wrap'>{user?.email || 'example@gmail.com'}</p>
+                        <p className='text-[#6b7380] font-normal sm:text-md text-[10px] flex-wrap'>{user?.email || 'example@gmail.com'}</p>
                     </div>
                 </div>
                 <div className="flex flex-col p-2 justify-start items-start gap-2 md:px-10">
@@ -312,6 +312,7 @@ const AccDetails = () => {
                     }
                     <input type="text" value={formData.password} onChange={(e) => { setformData((prevData) => ({ ...prevData, password: e.target.value })) }} placeholder='New password' readOnly={!editMode} className='border border-neutral-400 text-neutral-500 max-w-full w-[450px] sm:h-[35px] p-1 px-2 text-sm outline-none focus:outline-none rounded-md' />
                 </div>
+                
                 {
                     errors.update !== '' ?
                         errors.update === "Data updated successfully" ?
@@ -324,7 +325,7 @@ const AccDetails = () => {
                 <div className="flex p-2 justify-start gap-2 md:px-10">
                     {!editMode ? (
                         <>
-                            <button className='bg-black px-4 py-2 text-white md:text-md text-xs rounded-md' onClick={() => setEditMode(true)}>Edit</button>
+                            <button className='bg-[#B6349A] px-4 py-2 text-white md:text-md text-xs rounded-md' onClick={() => setEditMode(true)}>Edit</button>
                         </>
                     ) : (
                         <>

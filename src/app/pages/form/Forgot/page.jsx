@@ -87,7 +87,7 @@ const page = () => {
       <div className='w-full h-[calc(100%-104px)] lg:h-[calc(100%-80px)]  flex items-center justify-center'>
         <form action="" className=' w-[600px] max-w-[80%] h-full flex flex-col items-center justify-center gap-5'>
           <h2 className='uppercase text-2xl md:text-4xl font-bold'>Forgot password</h2>
-          <p>Got your password ? <Link href={"/pages/form/Login"} className='text-blue-600 uppercase font-bold'>Login</Link></p>
+          <p>Got your password ? <Link href={"/pages/form/Login"} className='text-[#B6349A] uppercase font-bold'>Login</Link></p>
           {
             errors.forgot === "" ?
               ''
@@ -100,10 +100,10 @@ const page = () => {
               :
               <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.username}</p>
           }
-          <input type="text" value={formData.username} onChange={(e) => usernameValidation(e)} className='border border-neutral-500 outline-none focus:border-blue-600 focus:outline-none max-w-full w-[400px] py-2 px-4 text-md' placeholder='Username or Email' />
+          <input type="text" value={formData.username} onChange={(e) => usernameValidation(e)} className='border border-neutral-500 outline-none focus:border-[#B6349A] focus:outline-none max-w-full w-[400px] py-2 px-4 text-md' placeholder='Username or Email' />
          
 
-          <button className='bg-blue-600 text-white p-5 py-3 rounded-sm w-[400px] max-w-full uppercase font-bold' onClick={ForgotpassHandel}>get password</button>
+          <button className='bg-[#B6349A] text-white p-5 py-3 rounded-sm w-[400px] max-w-full uppercase font-bold' onClick={ForgotpassHandel}>get password</button>
         </form>
 
       </div>
