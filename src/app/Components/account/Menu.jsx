@@ -18,7 +18,7 @@ const Menu = () => {
 
     return (
         <div
-            className={`w-[300px] h-full flex flex-col items-center justify-start rounded-2xl p-5 shadow-xl bg-white 
+            className={`w-[200px] lg:w-[300px] h-full flex flex-col items-center justify-start rounded-2xl p-5 shadow-2xl bg-white max-h-[100%]
             transform transition-transform duration-300 z-40 
             ${menuAccView ? "translate-x-0" : "-translate-x-[150%]"} lg:translate-x-0`}
         >
@@ -30,20 +30,17 @@ const Menu = () => {
                 onClick={() => setMenuAccView(false)}
             />
 
-            {/* User Info */}
             <div className="flex items-center gap-3 w-full">
                 <img
                     src={user?.image || "/svg/unknown-com.svg"}
                     alt="person"
-                    className="w-[48px] h-[48px] rounded-full"
+                    className="lg:w-[48px] lg:h-[48px] w-[40px] h-[40px] rounded-full"
                 />
-                <h3 className="text-black font-medium text-[15px]">{user?.name || "Name"}</h3>
+                <h3 className="text-black font-medium lg:text-[15px] text-[13px]">{user?.name || "Name"}</h3>
             </div>
 
-            {/* Divider */}
-            <div className="bg-gray-400 w-full h-[1px] mt-5"></div>
+            <div className="bg-gray-300 w-full h-[1px] mt-5"></div>
 
-            {/* Menu Items */}
             <div className="flex flex-col w-full h-full mt-5 overflow-auto">
                 <div
                     className="flex py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
@@ -62,16 +59,19 @@ const Menu = () => {
                         Dashboard
                     </div>
                 </Link>
-
-                {/* Logout Button */}
-                <button
-                    onClick={logoutHandler}
-                    className="py-3 flex items-center justify-center gap-1 mt-auto mb-0 text-red-500 font-bold"
-                >
-                    <img src="/svg/logout-com.svg" alt="logout" className="w-[30px]" />
-                    Logout
-                </button>
+                
             </div>
+
+            <div className="bg-gray-300 w-full h-[1px] my-2"></div>
+
+            {/* Logout Button */}
+            <button
+                onClick={logoutHandler}
+                className="flex items-center justify-center gap-1 mt-auto mb-0 text-red-500 font-bold"
+            >
+                <img src="/svg/logout-com.svg" alt="logout" className="w-[30px]" />
+                Logout
+            </button>
         </div>
     );
 };

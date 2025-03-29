@@ -10,7 +10,7 @@ const page = () => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
     const token='f9b8c1d45e3a4f6789b12c34d5e67f890a1b23c45d6e78f90b12c34d5e67f890'
 
-    const [formData, setformData] = useState({ username: '', password: '' })
+    const [formData, setformData] = useState({ username: 'fares123', password: 'fares123' })
     const [errors, setErrors] = useState({ username: '', password: '', login: '' });
     const [loader, setloader] = useState(false)
     const [passType, setpassType] = useState('password');
@@ -77,7 +77,7 @@ const page = () => {
                 setUser(res.data.user);
                 setisLoged(true);
                 router.push("/");
-                setformData({ username: 'fares123', password: 'fares123' });
+                setformData({ username: '', password: '' });
                 setTimeout(() => {
                     setErrors({ username: '', password: '', login: '' });
                 }, 3000);

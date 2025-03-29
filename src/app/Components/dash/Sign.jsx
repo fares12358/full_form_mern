@@ -117,7 +117,7 @@ const Sign = () => {
       <Loader />
       :
       <>
-        <div className="relative container-fluid w-full min-h-[100vh] bg-[#09090b] text-white flex justify-center items-center p-5">
+        <div className="container-fluid w-full min-h-[100vh] bg-[#09090b] text-white flex justify-center items-center p-5 absolute top-0 left-0">
           <div className="font-bold bg-[rgb(24,24,27)] md:px-20 px-5 py-10 border border-neutral-800 flex flex-col justify-start items-center rounded-xl">
             <h1 className="md:text-3xl text-xl uppercase my-5">login</h1>
             <p className="text-xs my-4 font-bold text-neutral-200 uppercase text-center">
