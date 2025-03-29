@@ -22,7 +22,6 @@ const Menu = () => {
             transform transition-transform duration-300 z-40 
             ${menuAccView ? "translate-x-0" : "-translate-x-[150%]"} lg:translate-x-0`}
         >
-            {/* Close button (only visible on mobile) */}
             <img
                 src="/svg/close-com copy.svg"
                 alt="menu"
@@ -34,32 +33,38 @@ const Menu = () => {
                 <img
                     src={user?.image || "/svg/unknown-com.svg"}
                     alt="person"
-                    className="lg:w-[48px] lg:h-[48px] w-[40px] h-[40px] rounded-full"
+                    className="lg:w-[48px] lg:h-[48px] w-[35px] h-[35px] rounded-full"
                 />
-                <h3 className="text-black font-medium lg:text-[15px] text-[13px]">{user?.name || "Name"}</h3>
+                <h3 className="text-[#B6349A] font-medium lg:text-[15px] text-[13px]">{user?.name || "Name"}</h3>
             </div>
 
             <div className="bg-gray-300 w-full h-[1px] mt-5"></div>
 
             <div className="flex flex-col w-full h-full mt-5 overflow-auto">
                 <div
-                    className="flex py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
+                    className="flex items-center py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
                     onClick={() => setMenuAccView(false)}
                 >
-                    <img src="/svg/account-com.svg" alt="account" className="w-[20px] h-[20px]" />
+                    <img src="/svg/account-com.svg" alt="account" className="w-[20] h-[20px] " />
                     Account Details
                 </div>
 
-                <Link href="/pages/dashboard">
-                    <div
-                        className="flex py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
-                        onClick={() => setMenuAccView(false)}
-                    >
-                        <img src="/svg/account-com.svg" alt="account" className="w-[20px] h-[20px]" />
-                        Dashboard
-                    </div>
+                <Link href="/pages/dashboard"
+                    className="flex items-center py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
+                    onClick={() => setMenuAccView(false)}
+                >
+                    <img src="/svg/admin-com.svg" alt="account" className="w-[20px] h-[20px] " />
+                    Dashboard
                 </Link>
-                
+
+                <Link href="/pages/cart"
+                    className="flex items-center py-3 gap-2 text-[14px] font-extralight text-gray-500 cursor-pointer"
+                    onClick={() => setMenuAccView(false)}
+                >
+                    <img src="/svg/cart-.svg" alt="account" className="w-[20px] h-[20px] " />
+                    Cart
+                </Link>
+
             </div>
 
             <div className="bg-gray-300 w-full h-[1px] my-2"></div>
@@ -69,7 +74,7 @@ const Menu = () => {
                 onClick={logoutHandler}
                 className="flex items-center justify-center gap-1 mt-auto mb-0 text-red-500 font-bold"
             >
-                <img src="/svg/logout-com.svg" alt="logout" className="w-[30px]" />
+                <img src="/svg/logout-com.svg" alt="logout" className="md:w-[30px] w-[20px]" />
                 Logout
             </button>
         </div>

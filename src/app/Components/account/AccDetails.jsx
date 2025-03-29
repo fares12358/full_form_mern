@@ -241,7 +241,7 @@ const AccDetails = () => {
                 <div className="flex items-center gap-2 p-2 ">
                     <img className='sm:w-[70px] w-[40px] sm:h-[70px] h-[40px] rounded-full border' src={user?.image || "/svg/unknown-com.svg"} alt="img" />
                     <div>
-                        <p className='sm:text-xl font-medium text-md'>{user?.name || 'Name'}</p>
+                        <p className='sm:text-xl font-medium text-md text-[#B6349A]'>{user?.name || 'Name'}</p>
                         <p className='text-[#6b7380] font-normal sm:text-md flex-wrap'>{user?.email || 'example@gmail.com'}</p>
                     </div>
                 </div>
