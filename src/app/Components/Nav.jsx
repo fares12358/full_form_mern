@@ -13,11 +13,10 @@ const Nav = () => {
     <nav className='w-full h-[50px] flex items-center justify-between  py-10 pb-16 lg:pb-10 px-5 container mx-auto relative'>
       <h1 className='text-xl font-bold text-[#B6349A]'>EasyMart</h1>
 
-      <ul className="flex items-center justify-center gap-5 md:text-md text-sm uppercase font-medium text-neutral-500 absolute md:static bottom-0 w-fit   left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:-translate-x-0 md:-translate-y-0 ">
-        <Link className='cursor-pointer hover:text-[#B6349A]' href={"/"}>home</Link>
-        <li className='cursor-pointer hover:text-[#B6349A]'>men</li>
-        <li className='cursor-pointer hover:text-[#B6349A]'>women</li>
-        <li className='cursor-pointer hover:text-[#B6349A]'>kids</li>
+      <ul className="flex items-center justify-center gap-5 md:text-[14px] text-[10px] font-medium text-neutral-500 absolute md:static bottom-0 w-full   left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:-translate-x-0 md:-translate-y-0 ">
+        <Link className='cursor-pointer hover:text-[#B6349A]' href={"/"}>Home</Link>
+        <li className='cursor-pointer hover:text-[#B6349A]'>About us</li>
+        <li className='cursor-pointer hover:text-[#B6349A]'>Contact us</li>
       </ul>
       {
          session && session.user || user && isLoged?

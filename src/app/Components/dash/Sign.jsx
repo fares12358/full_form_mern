@@ -67,7 +67,6 @@ const Sign = () => {
         errorMessage = data.message || errorMessage;
       }
       setErrors((prev) => ({ ...prev, login: errorMessage }));
-
       return false
     } finally {
       setloader(false);
@@ -100,7 +99,6 @@ const Sign = () => {
         errorMessage = data.message || errorMessage;
       }
       setErrors((prev) => ({ ...prev, login: errorMessage }));
-
       return false
     } finally {
       setloader(false);
@@ -110,20 +108,18 @@ const Sign = () => {
     }
   }
 
-
-
   return (
     loader ?
       <Loader />
       :
       <>
         <div className="container-fluid w-full min-h-[100vh] bg-[#09090b] text-white flex justify-center items-center p-5 absolute top-0 left-0">
-          <div className="font-bold bg-[rgb(24,24,27)] md:px-20 px-5 py-10 border border-neutral-800 flex flex-col justify-start items-center rounded-xl">
+          <div className="max-w-full font-bold bg-[rgb(24,24,27)] md:px-20 px-5 py-10 border border-neutral-800 flex flex-col justify-start items-center rounded-xl">
             <h1 className="md:text-3xl text-xl uppercase my-5">login</h1>
             <p className="text-xs my-4 font-bold text-neutral-200 uppercase text-center">
               login to open the admin dashboard
             </p>
-            <form className=" w-full flex flex-col justify-start items-center ">
+            <form className="max-w-full w-fit h-fit flex flex-col justify-start items-center borde">
               {
                 errors.username === "" ?
                   ''
@@ -133,7 +129,7 @@ const Sign = () => {
               <input
                 type="text"
                 placeholder="Enter username"
-                className="my-5 px-5 py-2 bg-[#242427] outline-none rounded-lg border border-neutral-600"
+                className="my-5 px-5 py-2 bg-[#242427] outline-none rounded-lg border border-neutral-600 max-w-full"
                 value={formData.username}
                 onChange={(e) => usernameValidation(e)}
 
@@ -144,11 +140,11 @@ const Sign = () => {
                   :
                   <p className='text-red-600 font-medium text-start  w-full max-w-[400px] text-wrap text-xs xl:text-md'>{errors.password}</p>
               }
-              <div className="relative w-fit h-fit my-5">
+              <div className="relative w-fit h-fit my-5 max-w-full">
                 <input
                   type={passType}
                   placeholder="Enter password"
-                  className="px-5 py-2 bg-[#242427] outline-none rounded-lg border border-neutral-600"
+                  className="px-5 py-2 bg-[#242427] outline-none rounded-lg border border-neutral-600  max-w-full"
                   value={formData.password}
                   onChange={(e) => passwordValidation(e)}
                 />
