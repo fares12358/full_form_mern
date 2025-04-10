@@ -213,7 +213,6 @@ const AccDetails = () => {
     };
 
     return (
-        !user && !isLoged ? 
         <div className='w-full h-full flex items-center justify-center'>
             <div className=" w-full h-full  flex flex-col justify-start overflow-auto">
                 <div className="flex items-center gap-2 p-2 ">
@@ -312,10 +311,6 @@ const AccDetails = () => {
                     )}
                 </div>
             </div>
-        </div>
-        :
-        <div className="w-full h-full flex items-center justify-center gap-2">
-            Some thing wrong go back <Link href={"/"} className='text-[#B6349A] font-bold'>Home</Link>
         </div>
     )
 }

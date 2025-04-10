@@ -97,7 +97,7 @@ const Menu = () => {
 
                 <div
                     className="flex items-center py-3 gap-2 text-[10px] md:text-[14px] font-extralight text-gray-500 cursor-pointer"
-                    onClick={() => { setMenuAccView(false); setAccPage(5) }}
+                    onClick={() => { setMenuAccView(false); setAccPage(6) }}
                 >
                     <img src="/svg/discount-com.svg" alt="account" className="w-[20px] h-[20px] " />
                     Coupons
@@ -105,7 +105,7 @@ const Menu = () => {
 
                 <div
                     className="flex items-center py-3 gap-2 text-[10px] md:text-[14px] font-extralight text-gray-500 cursor-pointer"
-                    onClick={() => { setMenuAccView(false); setAccPage(6) }}
+                    onClick={() => { setMenuAccView(false); setAccPage(7) }}
                 >
                     <img src="/svg/setting-com copy.svg" alt="account" className="w-[20px] h-[20px] " />
                     Settings
@@ -113,7 +113,7 @@ const Menu = () => {
 
                 <div
                     className="flex items-center py-3 gap-2 text-[10px] md:text-[14px] font-extralight text-gray-500 cursor-pointer"
-                    onClick={() => { setMenuAccView(false); setAccPage(7) }}
+                    onClick={() => { setMenuAccView(false); setAccPage(8) }}
                 >
                     <img src="/svg/discount-com.svg" alt="account" className="w-[20px] h-[20px] " />
                     Help Center
