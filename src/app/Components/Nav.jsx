@@ -7,7 +7,7 @@ import { useAppContext } from '../Context';
 
 const Nav = () => {
   const { data: session, status } = useSession();
-  const { user, isLoged,  } = useAppContext();
+  const { user, isLoged, } = useAppContext();
 
   return (
     <nav className='w-full h-[50px] flex items-center justify-between  py-10 pb-16 lg:pb-10 px-5 container mx-auto relative'>
@@ -20,14 +20,14 @@ const Nav = () => {
       </ul>
       {
         //  session && session.user || user && isLoged?
-        session && session.user || user && isLoged?
+        session && session.user || user && isLoged ?
           <div className='flex items-center justify-center gap-2 lg:gap-5 w-fit'>
-            <Link href={"/pages/account2/0"} className='flex items-center justify-center gap-4 w-fit h-fit'><img src={user?.image || "/svg/unknown-com.svg"} alt='home' fill="true"  className='rounded-full w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] ' /></Link>
+            <Link href={"/pages/account2/0"} className='flex items-center justify-center gap-4 w-fit h-fit'><img src={user?.image || "/svg/unknown-com.svg"} alt='home' fill="true" className='rounded-full w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] ' /></Link>
             <Link href={"/pages/account2/2"} className='flex items-center justify-center gap-2 text-[12px] px-2 py-1 lg:px-2 lg:py-2 rounded-[39px] bg-[#FDEAFB] font-medium text-black'>
-            <div className="flex items-center justify-center text-[12px] bg-white p-1 rounded-2xl w-fit text-[#B6349A] font-bold">
-              <Image src={"/svg/cart-.svg"} alt='cart' width={20} height={20} />
-              20
-            </div>
+              <div className="flex items-center justify-center text-[12px] bg-white p-1 rounded-2xl w-fit text-[#B6349A] font-bold">
+                <Image src={"/svg/cart-.svg"} alt='cart' width={20} height={20} />
+                20
+              </div>
               Cart
             </Link>
           </div>

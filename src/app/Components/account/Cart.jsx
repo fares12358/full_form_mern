@@ -1,23 +1,26 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from "react";
 
 const Cart = () => {
   const [products, setProducts] = useState([
     {
       id: 1,
-      name: 'T-Shirt',
-      image: '/img/image.png',
-      price: 20,
+      name: "Black Dashers",
+      description: "Men's shoes",
+      image: "/img/image.png",
+      price: 64,
       quantity: 1,
     },
     {
       id: 2,
-      name: 'Hoodie',
-      image: '/img/image.png',
-      price: 35,
-      quantity: 2,
+      name: "Pink Dashers",
+      description: "Women's shoes",
+      image: "/img/image.png",
+      price: 95,
+      quantity: 1,
     },
   ]);
+
   const handleQuantityChange = (id, type) => {
     setProducts((prev) =>
       prev.map((product) =>
@@ -25,7 +28,7 @@ const Cart = () => {
           ? {
             ...product,
             quantity:
-              type === 'increase'
+              type === "increase"
                 ? product.quantity + 1
                 : Math.max(1, product.quantity - 1),
           }
@@ -33,77 +36,90 @@ const Cart = () => {
       )
     );
   };
+
   const handleDelete = (id) => {
     setProducts((prev) => prev.filter((product) => product.id !== id));
   };
+
   return (
-    <div className="overflow-x-auto mt-5 md:mt-0">
-      <table className="min-w-full bg-white text-sm text-left text-gray-700 shadow-md rounded-lg overflow-hidden">
-        <thead className="bg-[#FDEAFB] text-gray-900 uppercase text-xs">
-          <tr className='text-[#B6349A]'>
-            <th className="px-6 py-3">Product</th>
-            <th className="px-6 py-3">Price</th>
-            <th className="px-6 py-3">Quantity</th>
-            <th className="px-6 py-3">Total</th>
-            <th className="px-6 py-3">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((item) => (
-            <tr key={item.id} className="border-b hover:bg-gray-50">
-              <td className="px-6 py-4 flex items-center gap-4">
+    <div className="p-4 flex flex-col gap-3 h-fit ">
+      {products.length === 0 ? (
+        <div className="text-center text-gray-500 py-10">
+          No products in the cart.
+        </div>
+      ) : (
+        products.map((item) => (
+          <div
+            key={item.id}
+            className="flex items-center justify-between bg-white rounded-xl shadow-md px-5 py-5 flex-wrap gap-5"
+          >
+            {/* Left: Image + Info */}
+            <div className="flex items-center gap-2 md:gap-5">
+              <div
+                className="w-20 h-20 rounded-xl flex items-center justify-center"
+              >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-12 h-12 object-cover rounded"
+                  className="w-full h-full rounded-xl object-contain"
                 />
-                <span className="max-w-[150px] md:max-w-[250px] whitespace-normal break-words mr-3">
+              </div>
+
+              <div className="flex flex-col">
+                <span className="text-[14px] font-medium text-gray-800">
                   {item.name}
                 </span>
-              </td>
-              <td className="px-6 py-4">${item.price}</td>
-              <td className="px-6 py-4">
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => handleQuantityChange(item.id, 'decrease')}
-                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
-                  >
-                    -
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button
-                    onClick={() => handleQuantityChange(item.id, 'increase')}
-                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
-                  >
-                    +
-                  </button>
-                </div>
-              </td>
-              <td className="px-6 py-4">${item.price * item.quantity}</td>
-              <td className="px-6 py-4">
+                <span className="text-xs text-gray-400 font-extralight">
+                  {item.description}
+                </span>
+                <span className="text-sm font-normal mt-1-2 flex flex-row gap-1 text-gray-500"><p className="text-gray-800">price:</p>${item.price}</span>
+                <span className="text-sm font-normal mt-1 flex flex-row gap-1 text-gray-500"><p className="text-gray-800">total:</p>${item.price * item.quantity}</span>
+              </div>
+            </div>
+
+            {/* Right: Quantity + Delete */}
+            <div className="flex flex-row items-center justify-between  gap-5 w-full md:w-fit">
+              <div className="flex items-center gap-2">
                 <button
-                  onClick={() => handleDelete(item.id)}
-                  className="text-red-600 hover:text-red-800"
+                  onClick={() => handleQuantityChange(item.id, "decrease")}
+                  className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center shadow text-lg hover:bg-gray-200"
                 >
-                  <img src="/svg/delete-com.svg" alt="delete" className='w-[20px] h-[20px]' />
+                  -
                 </button>
-              </td>
-            </tr>
-          ))}
-          {products.length === 0 && (
-            <tr>
-              <td colSpan="5" className="text-center py-6 text-gray-500">
-                No products in the cart.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-      <button className="text-[#B6349A] md:text-[15px] text-[10px] font-normal my-10">Save Changes</button>
+                <span className="text-sm font-medium">{item.quantity}</span>
+                <button
+                  onClick={() => handleQuantityChange(item.id, "increase")}
+                  className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center shadow text-lg hover:bg-gray-200"
+                >
+                  +
+                </button>
+              </div>
+              <img
+                onClick={() => handleDelete(item.id)}
+                className="text-red-500 text-xs hover:text-red-700 w-[18px] h-[18px]"
+                src="/svg/delete-com.svg"
+                alt="delete"
+              />
+            </div>
+          </div>
+        ))
+      )}
+      {products.length > 0 && (
+        <div className="flex items-center justify-between mt-5">
+          <div className="text-right text-[#B6349A] font-semibold text-base flex items-center justify-center gap-2">
+            <p className="text-black ">
+              Total:
+            </p>
+            $
+            {products.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+          </div>
+          <button className="text-[#B6349A] text-sm font-medium">
+            Save Changes
+          </button>
+        </div>
+      )}
     </div>
   );
 };
-
-
 
 export default Cart;
